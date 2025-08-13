@@ -23,7 +23,7 @@ st.subheader("Enter a Website URL to get a short summary.")
 input_url = st.text_input("Enter URL here", label_visibility="collapsed")
 
 # Step 4: Initialize the Groq LLM with Gemma model
-llm = ChatGroq(model="gemma2-9b-it", groq_api_key=os.getenv("GROQ_API_KEY"))
+llm = ChatGroq(model="llama-3.1-8b-instant", groq_api_key=os.getenv("GROQ_API_KEY"))
 
 # Step 5: Create a prompt template for summarization
 prompt_template = """
@@ -58,4 +58,5 @@ if st.button("Summarize the Content"):
                     st.write(summary)
 
         except Exception as e:
+
             st.error(f"⚠️ An error occurred: {e}")
